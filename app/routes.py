@@ -3,13 +3,17 @@ from app import app
 
 tasks = [{
     'id' : 1,
-    'task' : 'Get a job',
-    'priority' : 1
+    'title' : 'Get a job',
+    'description' : 'I need to get a job or I will be broke',
+    'completed' : False,
+    'createdAt' : '2024-01-10T12:30:45'
 },
 {
     'id' : 2,
-    'task' : 'Get a good night of sleep',
-    'priority' : 2
+    'title' : 'Get a good night of sleep',
+    'description' : 'Sleep is good for the mind, and the body',
+    'completed' : False,
+    'createdAt' : '2024-03-20T08:12:22'
 }]
 
 @app.route("/")
@@ -29,7 +33,7 @@ def add_task():
     
     data = request.json
     # check to make sure the data is valid
-    required_keys = ["task", "priority"]
+    required_keys = ["title", "description"]
     missing_keys = []
     for key in required_keys:
         if key not in data:
@@ -37,13 +41,13 @@ def add_task():
     if missing_keys:
         return {"error" : f"Keys: {', '.join(missing_keys)} are missing from request"}, 400
     
-    task = data.get('task')
-    priority = data.get('priority')
+    title = data.get('title')
+    description = data.get('description')
 
     new_task = {
         "id" : len(tasks) + 1,
-        "task" : task,
-        "priority" : priority
+        "title" : title,
+        "description" : description
     }
     tasks.append(new_task)
 
