@@ -96,5 +96,3 @@ def get_task(task_id):
 #     tasks.append(new_task)
 
 #     return new_task, 201
-
-
