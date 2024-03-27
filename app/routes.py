@@ -5,8 +5,8 @@ from app.models import Task
 
 tasks = [{
     'id' : 1,
-    'title' : 'Get a job',
-    'description' : 'I need to get a job or I will be broke',
+    'title' : 'Eat breakfast',
+    'description' : 'The most important meal of the day',
     'completed' : False,
     'createdAt' : 'Tue, 26 Mar 2024 15:07:06 GMT"'
 },
