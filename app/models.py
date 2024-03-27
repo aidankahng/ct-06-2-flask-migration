@@ -18,9 +18,13 @@ class Task(db.Model):
         self.completed = completed
         self.save()
 
-    
-    # When creating a new Task, it will automagically be added to our database
+    def __str__(self):
+        return f"{self.id} | {self.title} | {self.description} | {self.completed} | {self.created_at}"
+
+    # When creating a new Task, it will be added to our database
     def save(self):
         db.session.add(self)
         db.session.commit()
+
+
 
