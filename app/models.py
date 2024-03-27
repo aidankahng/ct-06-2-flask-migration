@@ -8,9 +8,16 @@ class Task(db.Model):
     completed = db.Column(db.Boolean, nullable=False, default=False)
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+    # def __init__(self, **kwargs):
+    #     super().__init__(**kwargs)
+    #     self.save()
+
+    def __init__(self, title:str, description:str, completed:bool):
+        self.title = title
+        self.description = description
+        self.completed = completed
         self.save()
+
     
     # When creating a new Task, it will automagically be added to our database
     def save(self):
